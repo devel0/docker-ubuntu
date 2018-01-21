@@ -30,3 +30,4 @@ RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
 RUN mkdir /entrypoint.d
 COPY run-entrypoints.sh /root
 ENTRYPOINT [ "/root/run-entrypoints.sh" ]
+CMD /bin/bash
