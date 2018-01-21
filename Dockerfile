@@ -25,3 +25,8 @@ RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
         echo '"\e[1;5D": backward-word' >> /root/.inputrc && \
         echo '"\e[1;5C": forward-word' >> /root/.inputrc && \
         echo "source /etc/environment" >> /root/.bashrc
+
+# entrypoint & cmd
+RUN mkdir /entrypoint.d
+COPY run-entrypoints.sh /root
+ENTRYPOINT [ "/root/run-entrypoints.sh" ]
