@@ -19,7 +19,16 @@ you can specify addictional docker build arguments, example:
 follow create a test named container running an interactive bash terminal
 
 ```
-docker run --name test -ti searchathing/ubuntu /bin/bash
+docker run --name=test -ti searchathing/ubuntu
+```
+
+## override default command
+
+default cmd is to execute a /bin/bash.
+follow create, execute and remove a container executing a command
+
+```
+docker run --rm=true searchathing/ubuntu ls
 ```
 
 ## dynamic entrypoints
