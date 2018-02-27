@@ -33,7 +33,7 @@ docker run --rm=true searchathing/ubuntu ls
 
 ## container timezone
 
-can be set trough TZ environment variable as shown follow examples
+can be set through TZ environment variable as shown follow examples
 
 ```
 # docker run --rm=true searchathing/ubuntu date
