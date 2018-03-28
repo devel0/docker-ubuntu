@@ -26,12 +26,14 @@ RUN apt-get install -y build-essential
 
 # locale
 RUN apt-get install -y language-pack-en-base && update-locale LANG=en_US.UTF-8 && dpkg-reconfigure locales
+ENV LANG=en_US.UTF-8
 
 # setup
 RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
 	echo 'alias mv="mv -i"' >> /root/.bashrc && \
 	echo 'alias rm="rm -i"' >> /root/.bashrc && \
 	echo 'HISTORY=1000000' >> /root/.bashrc && \
+	echo 'LANG=en_US.UTF-8' >> /root/.bashrc && \
 	echo 'PS1="[docker \h:\\w]\\\\$ "' >> /root/.bashrc && \
         echo 'if [ -f /etc/bash_completion ] && ! shopt -oq posix; then . /etc/bash_completion; fi' >> /root/.bashrc && \
         echo '"\e[1;5D": backward-word' >> /root/.inputrc && \
