@@ -24,6 +24,9 @@ RUN apt-get install -y nodejs
 # build
 RUN apt-get install -y build-essential
 
+# locale
+RUN apt-get install -y language-pack-en-base && update-locale LANG=en_US.UTF-8 && dpkg-reconfigure locales
+
 # setup
 RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
 	echo 'alias mv="mv -i"' >> /root/.bashrc && \
