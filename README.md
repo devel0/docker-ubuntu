@@ -2,6 +2,10 @@
 
 base ubuntu with some basic utilities and settings
 
+## news
+
+- [bionic](https://github.com/devel0/docker-ubuntu/tree/bionic) version
+
 ## build image
 
 ```
