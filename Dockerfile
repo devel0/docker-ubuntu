@@ -18,7 +18,7 @@ ENV EDITOR nano
 RUN apt-get install -y tzdata
 
 # node
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 RUN apt-get install -y nodejs
 
 # build
