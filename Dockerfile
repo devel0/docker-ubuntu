@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -20,6 +20,10 @@ RUN apt-get install -y tzdata
 # node
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 RUN apt-get install -y nodejs
+RUN npm i npm@latest -g
+
+# local web server
+RUN npm install -g local-web-server
 
 # build
 RUN apt-get install -y build-essential

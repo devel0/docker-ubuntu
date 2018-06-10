@@ -6,4 +6,4 @@
 
 exdir=$(dirname `readlink -f "$0"`)
 
-docker build $args $* -t searchathing/ubuntu -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/ubuntu:bionic -f "$exdir"/Dockerfile "$exdir"/.
