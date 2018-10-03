@@ -5,6 +5,7 @@ base ubuntu with some basic utilities and settings
 ## build image
 
 ```
+git checkout bionic
 ./build.sh
 ```
 
