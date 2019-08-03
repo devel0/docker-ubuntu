@@ -17,20 +17,24 @@ ENV EDITOR nano
 # timezone
 RUN apt-get install -y tzdata
 
-# node
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN apt-get install -y nodejs
-RUN npm i npm@latest -g
-
-# local web server
-RUN npm install -g local-web-server
-
 # build
 RUN apt-get install -y build-essential
 
 # locale
 RUN apt-get install -y language-pack-en-base && update-locale LANG=en_US.UTF-8 && dpkg-reconfigure locales
 ENV LANG=en_US.UTF-8
+
+# node
+COPY Downloads/node-v10.16.1-linux-x64.tar.xz /tmp
+RUN mkdir -p /opt/nodejs && tar xvf /tmp/node-v10.16.1-linux-x64.tar.xz -C /opt/nodejs --strip-components 1 && rm -f /tmp/node-v10.16.1-linux-x64.tar.xz
+ENV PATH="${PATH}:/opt/nodejs/bin"
+RUN echo 'export PATH=$PATH:/opt/nodejs/bin' >> ~/.bashrc
+
+# bower
+RUN npm install -g bower
+
+# local web server
+RUN npm install -g local-web-server
 
 # setup
 RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
