@@ -9,6 +9,7 @@ base ubuntu with some basic utilities and settings
 ## build image
 
 ```
+git checkout master
 ./build.sh
 ```
 
