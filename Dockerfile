@@ -27,26 +27,26 @@ ENV LANG=en_US.UTF-8
 # node
 COPY Downloads/node-v10.16.1-linux-x64.tar.xz /tmp
 RUN mkdir -p /opt/nodejs && tar xvf /tmp/node-v10.16.1-linux-x64.tar.xz -C /opt/nodejs --strip-components 1 && rm -f /tmp/node-v10.16.1-linux-x64.tar.xz
-ENV PATH="${PATH}:/opt/nodejs/bin"
-RUN echo 'export PATH=$PATH:/opt/nodejs/bin' >> ~/.bashrc
+ENV PATH "${PATH}:/opt/nodejs/bin"
+#RUN echo 'export PATH=$PATH:/opt/nodejs/bin' >> ~/.bashrc
 
 # bower
-RUN npm install -g bower
+RUN /opt/nodejs/bin/npm install -g bower
 
 # local web server
-RUN npm install -g local-web-server
+RUN /opt/nodejs/bin/npm install -g local-web-server
 
 # setup
 RUN echo 'alias cp="cp -i"' >> /root/.bashrc && \
 	echo 'alias mv="mv -i"' >> /root/.bashrc && \
 	echo 'alias rm="rm -i"' >> /root/.bashrc && \
-	echo 'HISTORY=1000000' >> /root/.bashrc && \
-	echo 'LANG=en_US.UTF-8' >> /root/.bashrc && \
-	echo 'PS1="[docker \h:\\w]\\\\$ "' >> /root/.bashrc && \
-        echo 'if [ -f /etc/bash_completion ] && ! shopt -oq posix; then . /etc/bash_completion; fi' >> /root/.bashrc && \
-        echo '"\e[1;5D": backward-word' >> /root/.inputrc && \
-        echo '"\e[1;5C": forward-word' >> /root/.inputrc && \
-        echo "source /etc/environment" >> /root/.bashrc
+	echo '"\e[1;5D": backward-word' >> /root/.inputrc && \
+	echo '"\e[1;5C": forward-word' >> /root/.inputrc && \
+        echo 'if [ -f /etc/bash_completion ] && ! shopt -oq posix; then . /etc/bash_completion; fi' >> /root/.bashrc
+
+ENV HISTORY 1000000
+ENV LANG en_US.UTF-8
+ENV PS1 "[docker \h:\\w]\\\\$ "
 
 # entrypoint & cmd
 RUN mkdir /entrypoint.d

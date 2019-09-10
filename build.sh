@@ -2,7 +2,7 @@
 
 # Usage: ./build [addictional-docker-build-args]
 #
-# Example: ./build --network-dkbuild
+# Example: ./build --network=dkbuild
 
 NODEJS_PACKAGE=node-v10.16.1-linux-x64.tar.xz
 
