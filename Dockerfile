@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive

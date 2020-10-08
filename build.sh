@@ -19,4 +19,4 @@ if [ ! -e "$DOWNLOADS/$NODEJS_PACKAGE" ]; then
 	exit 1
 fi
 
-docker build $args $* -t searchathing/ubuntu:server-mgr -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/ubuntu:focal -f "$exdir"/Dockerfile "$exdir"/.
