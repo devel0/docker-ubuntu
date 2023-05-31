@@ -2,9 +2,9 @@
 
 # Usage: ./build [addictional-docker-build-args]
 #
-# Example: ./build --network=dkbuild
 
-NODEJS_PACKAGE=node-v10.16.1-linux-x64.tar.xz
+# https://nodejs.org/dist/v18.16.0/node-v18.16.0-linux-x64.tar.xz
+NODEJS_PACKAGE=node-v18.16.0-linux-x64.tar.xz
 
 exdir=$(dirname `readlink -f "$0"`)
 
@@ -16,7 +16,9 @@ fi
 
 if [ ! -e "$DOWNLOADS/$NODEJS_PACKAGE" ]; then
 	echo "missing $DOWNLOADS/$NODEJS_PACAKGE please download from https://nodejs.org/en/download/"
+	echo "  curl -o Downloads/node-v18.16.0-linux-x64.tar.xz https://nodejs.org/dist/v18.16.0/node-v18.16.0-linux-x64.tar.xz
+"
 	exit 1
 fi
 
-docker build $args $* -t searchathing/ubuntu:focal -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/ubuntu:jammy -f "$exdir"/Dockerfile "$exdir"/.

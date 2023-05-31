@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,7 +10,7 @@ RUN apt-get update && \
 	apt-get install -y software-properties-common
 
 # workaround https://github.com/moby/moby/issues/5490
-RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
+# RUN mv /usr/sbin/tcpdump /usr/bin/tcpdump
 
 ENV EDITOR nano
 
@@ -25,8 +25,8 @@ RUN apt-get install -y language-pack-en-base && update-locale LANG=en_US.UTF-8 &
 ENV LANG=en_US.UTF-8
 
 # node
-COPY Downloads/node-v10.16.1-linux-x64.tar.xz /tmp
-RUN mkdir -p /opt/nodejs && tar xvf /tmp/node-v10.16.1-linux-x64.tar.xz -C /opt/nodejs --strip-components 1 && rm -f /tmp/node-v10.16.1-linux-x64.tar.xz
+COPY Downloads/node-v18.16.0-linux-x64.tar.xz /tmp
+RUN mkdir -p /opt/nodejs && tar xvf /tmp/node-v18.16.0-linux-x64.tar.xz -C /opt/nodejs --strip-components 1 && rm -f /tmp/node-v18.16.0-linux-x64.tar.xz
 ENV PATH "${PATH}:/opt/nodejs/bin"
 #RUN echo 'export PATH=$PATH:/opt/nodejs/bin' >> ~/.bashrc
 
